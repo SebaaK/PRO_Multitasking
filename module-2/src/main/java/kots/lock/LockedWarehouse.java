@@ -26,6 +26,18 @@ class LockedWarehouse {
         }
     }
 
+    public void remove(Product product, String worker) {
+        System.out.println("Worker " + worker + " wants to delete product [" + product + "]");
+        final long stamp = lock.writeLock();
+        try {
+            sleep(3);
+            products.remove(product);
+            System.out.println("Worker " + worker + " removed " + product + " from warehouse");
+        } finally {
+            lock.unlock(stamp);
+        }
+    }
+
     private Integer countProducts() {
         return products.values().stream()
                 .reduce(0, Integer::sum);

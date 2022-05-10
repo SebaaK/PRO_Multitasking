@@ -16,6 +16,9 @@ class LockTest {
         executorService.submit(new InventoryWorker("Inventory 1", lockedWarehouse));
         executorService.submit(new InventoryWorker("Inventory 2", lockedWarehouse));
 
+        executorService.submit(new RemoveProductWorker("Remover 1", lockedWarehouse));
+        executorService.submit(new RemoveProductWorker("Remover 2", lockedWarehouse));
+
         executorService.shutdown();
     }
 }
