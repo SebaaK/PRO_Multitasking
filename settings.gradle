@@ -1,3 +1,4 @@
 rootProject.name = 'PRO_Multitasking_in_Java'
 include 'module-1'
+include 'module-2'
 
